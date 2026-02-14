@@ -296,6 +296,29 @@
     .modal h3{ margin: 4px 0 10px; font-size: 15px; }
     .modal .actions{ display:flex; gap:10px; margin-top: 12px; }
 
+    /* --- mobile modal fix (iPhone/Safari safe-area & buttons) --- */
+    .modal-backdrop{
+      padding: calc(18px + env(safe-area-inset-bottom)) 18px 18px 18px;
+    }
+    .modal{
+      max-height: calc(100vh - 36px - env(safe-area-inset-top));
+      overflow: auto;
+      padding-bottom: calc(14px + env(safe-area-inset-bottom));
+    }
+    .modal .actions{
+      flex-wrap: wrap;
+    }
+    .modal .actions .btn{
+      min-width: 0;
+      flex: 1;
+    }
+    @media (max-width: 420px){
+      .modal .actions{
+        flex-direction: column;
+      }
+    }
+    /* --- end mobile modal fix --- */
+
     .view{ display:none; }
     .view.active{ display:block; }
 
